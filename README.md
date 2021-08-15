@@ -1,1 +1,52 @@
-# Arduino-Unleashed
+include <LedControl.h>
+
+int DIN = 12;
+int CLK =  11;
+int CS = 10;
+
+LedControl lc=LedControl(DIN,CLK,CS,0);
+
+void setup(){
+ lc.shutdown(0,false);     //The MAX72XX is in power-saving mode on startup
+ lc.setIntensity(0,15);     // Set the brightness to maximum value
+ lc.clearDisplay(0);         // and clear the display
+}
+
+void loop(){ 
+
+//Create an array of 8 bytes (64 bits) containing a patterns of 1's (lit) and 0's (not lit)
+
+//This patterns of ones will create a square as outlined by the 1's in the 2 dimensional array below://
+byte square[8]= {B11111111,
+          B10000001,
+          B10000001,
+          B10000001,
+          B10000001,
+          B10000001,
+          B10000001,
+          B11111111};
+
+//This patterns of ones will create a smiley face as outlined by the 1's in the 2 dimensional array below://
+//byte face[8]=   {B00000000, 
+           B00000000,
+           B01000010,
+           B00000000,
+           B00010000,
+           B01000010,
+           B00111100,
+           B00000000};
+
+    printByte(square);
+    delay(1000);
+}
+
+// The code below is a function. This function takes data from an particular shape array and sends it to the display
+
+void printByte(byte character [])
+{
+  int i = 0;
+      for(i=0;i<8;i++)
+    {
+        lc.setRow(0,i,character[i]);
+    }
+}
