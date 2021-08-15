@@ -18,23 +18,23 @@ void loop(){
 
 //This patterns of ones will create a square as outlined by the 1's in the 2 dimensional array below://
 byte square[8]= {B11111111,
-          B10000001,
-          B10000001,
-          B10000001,
-          B10000001,
-          B10000001,
-          B10000001,
-          B11111111};
+                 B10000001,
+                 B10000001,
+                 B10000001,
+                 B10000001,
+                 B10000001,
+                 B10000001,
+                 B11111111};
 
 //This patterns of ones will create a smiley face as outlined by the 1's in the 2 dimensional array below://
 //byte face[8]=   {B00000000, 
-           B00000000,
-           B01000010,
-           B00000000,
-           B00010000,
-           B01000010,
-           B00111100,
-           B00000000};
+                   B00000000,
+                   B01000010,
+                   B00000000,
+                   B00010000,
+                   B01000010,
+                   B00111100,
+                   B00000000};
 
     printByte(square);
     delay(1000);
